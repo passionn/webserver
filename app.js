@@ -10,8 +10,6 @@ const app = new Koa()
 
 app.use(logger())
 
-console.log( path.join(__dirname, './public'))
-
 app.use(koaStaticPlus(path.join(__dirname, './public')),{
    pathPrefix:''
 })
