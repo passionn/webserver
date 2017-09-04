@@ -15,11 +15,22 @@ const findAllArticle = () => {
 	})
 }
 
+// 查找制定的文章
 
+const findOneArticle =() => {
+	return new Promise(resolve,reject)=>{
+		Article.findOne({},(err,doc)=>{
+			if(err){
+				reject(err)
+			}
+			resolve(doc)
+		})
+	})
+}
 
-export default async (ctx, next) => {
-  	const title = 'koa2 title'
-	
+// 新建文章
+
+const createNewArticle =()=>{
 	// let article =new Article({
 	// 	title: '黑土麦田 实干兴邦',
 	//     author: '许吉如',
@@ -36,6 +47,10 @@ export default async (ctx, next) => {
 	// 		resolve()
 	// 	})
 	// })
+}
+
+export default async (ctx, next) => {
+  	const title = 'koa2 title'
 
 	let list = await findAllArticle();
 	
