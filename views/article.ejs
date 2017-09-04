@@ -7,15 +7,22 @@
     <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
-  	<div class="container">
-		 <ul>
-			<% for(var i=0; i<list.length; i++) {%>
-			   <li>
-			   		<p><h4><%= list[i].title %></h4></p>
-					<p><%= list[i].content %></p>
-			   </li>
-			<% } %>
-		</ul>
-  	</div>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">标题</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="标题">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">作者</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="作者">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">内容</label>
+          <textarea class="form-control" rows="5"></textarea>
+        </div>        
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
   </body>
 </html>
