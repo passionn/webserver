@@ -2,9 +2,14 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>EJS Welcome to <%= title %></p>
+    <ul>
+		<% for(var i=0; i<list.length; i++) {%>
+		   <li><%= list[i].title %></li>
+		<% } %>
+	</ul>
   </body>
 </html>
