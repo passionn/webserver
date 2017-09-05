@@ -4,7 +4,7 @@ import views from 'koa-views'
 import logger from 'koa-logger'
 import koaStaticPlus from 'koa-static-plus'
 import router from './routes'
-
+import bodyParser from 'koa-bodyparser'
 
 const app = new Koa()
 
@@ -13,6 +13,9 @@ app.use(logger())
 app.use(koaStaticPlus(path.join(__dirname, './public')),{
    pathPrefix:''
 })
+
+//bodyparser:该中间件用于post请求的数据
+app.use(bodyParser());
 
 // views
 app.use(views(path.join(__dirname, './views'), {

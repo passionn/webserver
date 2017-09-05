@@ -1,13 +1,12 @@
-import indexCtrl from '../controllers/indexCtrl'
-import articleCtrl from '../controllers/articleCtrl'
-import writingCtrl from '../controllers/writingCtrl'
+import { Index, Articles, Write,Save} from '../controllers/'
 import Router from 'koa-router'
 
 const router =new Router()
 
-router.get('/', indexCtrl)
-router.get('/article/:id',articleCtrl)
-router.get('/writing',writingCtrl)
+router.get('/', Index)
+router.get('/article/:id',Articles)
+router.get('/writing',Write)
+router.post('/writing/save',Save)
 
 
 export default router
