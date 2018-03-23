@@ -5,6 +5,7 @@ import logger from 'koa-logger'
 import koaStaticPlus from 'koa-static-plus'
 import router from './routes'
 import bodyParser from 'koa-bodyparser'
+import multer  from 'multer'
 
 const app = new Koa()
 

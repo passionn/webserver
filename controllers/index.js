@@ -1,4 +1,7 @@
 import db from'../db/db'
+import fs from 'fs'
+import os from 'os'
+import path from 'path'
 
 const Article=db.Article
 
@@ -82,9 +85,37 @@ const Save = async (ctx,next) => {
     };
 }
 
+const Upload =async (ctx,next) =>{
+	
+	if(ctx.method=='POST'){
+
+		  //const file = ctx.request.body.files.file;
+
+		  console.log(ctx.request.body);
+
+
+		  // const reader = fs.createReadStream(file.path);
+		  // const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()));
+		  // reader.pipe(stream);
+		  // console.log('uploading %s -> %s', file.name, stream.path);
+
+
+			ctx.status = 200;
+		    ctx.body = {
+		        success: true
+		    };
+	}else{
+		await ctx.render('upload',{
+			title:'upload'
+		})
+	}
+	
+}
+
 export {
 	Index,
 	Articles,
 	Write,
-	Save
+	Save,
+	Upload
 }

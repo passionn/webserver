@@ -1,0 +1,58 @@
+<%- include('header') -%>
+     <h4>上传文件</h4>
+     <input type="file" id="imgUploadBtn" />
+     <a href="javascript:;" id="formupload">上传</a>
+	 <div id="prew"></div>
+	<script>
+		
+		$('#imgUploadBtn').select(function(){
+			console.log('select');
+			var file=$('#imgUploadBtn').get(0);
+
+			var reader = new FileReader(), htmlImage;
+			reader.onload = function(e) {
+			    htmlImage = '<img src="'+ e.target.result +'" />';
+			    $('#prew').html(htmlImage);
+			    console.log('aaa!!!');
+			}
+			reader.readAsDataURL(file);
+
+		});
+		
+		var input = document.getElementById('imgUploadBtn');
+		var files;
+		$('#imgUploadBtn').change(function(){
+			console.log('change');
+			files=input.files[0];
+			var reader = new FileReader(), htmlImage;
+			reader.onload = function(e) {
+			    htmlImage = '<img src="'+ e.target.result +'" />';
+			    $('#prew').html(htmlImage);
+			    console.log('aaa!!!');
+			}
+			reader.readAsDataURL(files);
+		});
+
+		$('#formupload').on('click',function(){
+
+			var formData = new FormData();
+			formData.append("file",$("#imgUploadBtn")[0].files[0]);
+			formData.append("name",'passion');
+
+			$.ajax({
+				url:'/upload',
+				type:'POST',
+				processData: false,
+				contentType : false,
+				data:formData,
+				success:function(res){
+
+				}
+			})
+		});
+
+
+	</script>
+
+
+<%- include('footer') -%>
