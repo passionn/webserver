@@ -2,7 +2,7 @@ import db from'../db/db'
 import fs from 'fs'
 import os from 'os'
 import path from 'path'
-
+	
 const Article=db.Article
 
 // 查找所有 文章;
@@ -92,7 +92,6 @@ const Upload =async (ctx,next) =>{
 		  //const file = ctx.request.body.files.file;
 
 		  console.log(ctx.request.body);
-
 
 		  // const reader = fs.createReadStream(file.path);
 		  // const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()));
