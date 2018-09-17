@@ -5,6 +5,7 @@ import logger from 'koa-logger'
 import koaStaticPlus from 'koa-static-plus'
 import router from './routes'
 import bodyParser from 'koa-bodyparser'
+import koaBody from 'koa-body'
 import multer  from 'multer'
 
 const app = new Koa()
@@ -16,7 +17,9 @@ app.use(koaStaticPlus(path.join(__dirname, './public')),{
 })
 
 //bodyparser:该中间件用于post请求的数据
-app.use(bodyParser());
+app.use(koaBody({
+  multipart: true
+}));
 
 // views
 app.use(views(path.join(__dirname, './views'), {

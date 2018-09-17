@@ -89,20 +89,22 @@ const Upload =async (ctx,next) =>{
 	
 	if(ctx.method=='POST'){
 
-		  //const file = ctx.request.body.files.file;
+		const file = ctx.request.files.file;
+		console.log(ctx.request.body);
+		console.log(ctx.request.files.file);
+		console.log(file.path);
 
-		  console.log(ctx.request.body);
+		const reader = fs.createReadStream(file.path);
+		//const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()));
+		const stream = fs.createWriteStream(path.join(__dirname, '../upload/')+file.name);
+		reader.pipe(stream);
+		console.log('uploading %s -> %s', file.name, stream.path);
 
-		  // const reader = fs.createReadStream(file.path);
-		  // const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()));
-		  // reader.pipe(stream);
-		  // console.log('uploading %s -> %s', file.name, stream.path);
-
-
-			ctx.status = 200;
-		    ctx.body = {
-		        success: true
-		    };
+		ctx.status = 200;
+		ctx.body = {
+			success: true
+		};
+			
 	}else{
 		await ctx.render('upload',{
 			title:'upload'

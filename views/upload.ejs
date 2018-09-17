@@ -3,6 +3,12 @@
      <input type="file" id="imgUploadBtn" />
      <a href="javascript:;" id="formupload">上传</a>
 	 <div id="prew"></div>
+
+	 <!-- <form action="/upload" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" id="file" value="" multiple="multiple" />
+		<input type="submit" value="提交"/>
+	</form> -->
+
 	<script>
 		
 		$('#imgUploadBtn').select(function(){
@@ -46,7 +52,7 @@
 				contentType : false,
 				data:formData,
 				success:function(res){
-
+					console.log(res);
 				}
 			})
 		});
