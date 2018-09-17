@@ -102,7 +102,9 @@ const Upload =async (ctx,next) =>{
 
 		ctx.status = 200;
 		ctx.body = {
-			success: true
+			code:1,
+			data:{},
+			msg:''
 		};
 			
 	}else{
