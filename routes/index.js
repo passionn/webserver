@@ -1,6 +1,5 @@
 import { Index, Articles, Write,Save,Upload} from '../controllers/'
 import Router from 'koa-router'
-import koaBody from 'koa-body'
 
 const router =new Router()
 
