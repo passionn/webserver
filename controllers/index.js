@@ -1,6 +1,5 @@
 import db from'../db/db'
 import fs from 'fs'
-import os from 'os'
 import path from 'path'
 	
 const Article=db.Article
@@ -56,12 +55,15 @@ const Index = async (ctx,next) => {
 	})
 }
 
-const  Articles =async (ctx,next) => {
+const  Articles = async (ctx,next) => {
 	let id=ctx.params.id
-	let list = await findOneArticle(id);	
+	let list = await findOneArticle(id);
+	let pargrames=list[0].content.split('\n');	
 	await ctx.render('article', {
 		list,
-		title:'my blog'
+		pargrames,
+		title:list[0].title,
+		author:list[0].author
 	})
 }
 
@@ -84,6 +86,8 @@ const Save = async (ctx,next) => {
         success: true
     };
 }
+
+// 上传图片
 
 const Upload =async (ctx,next) =>{
 	

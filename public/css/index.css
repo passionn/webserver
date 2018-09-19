@@ -1,6 +1,17 @@
+/* 文章详情 */
+ul{padding:0}
 li{
 	list-style: none;
 }
+.author span{
+	color:#2673db
+}
+.poem-separater{
+	height: 1px;
+	background-color: #f0eff4;
+	margin-bottom: 5px;
+}
+
 #prew{
 	width:200px;
 	height:200px;

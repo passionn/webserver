@@ -1,9 +1,11 @@
 <%- include('header') -%>
-     <ul>
-      <% for(var i=0; i<list.length; i++) {%>
-         <li>
-            <p><a href='/article/<%= list[i]._id %>'><h4><%= list[i].title %></h4></a></a></p>
-          <p><%= list[i].content %></p>
+    <h4><%= title %></h4>
+    <p class="author">【作者】 <span><%= author %></span></p>
+    <div class="poem-separater"></div>
+    <ul>
+      <% for(var i=0; i<pargrames.length; i++) {%>
+         <li>       
+            <p><%= pargrames[i] %></p>
          </li>
       <% } %>
     </ul>
