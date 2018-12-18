@@ -8,6 +8,8 @@ import bodyParser from 'koa-bodyparser'
 import koaBody from 'koa-body'
 import multer  from 'multer'
 
+import session from 'koa-session'
+
 const app = new Koa()
 
 app.use(logger())
@@ -24,7 +26,31 @@ app.use(koaBody({
 // views
 app.use(views(path.join(__dirname, './views'), {
   extension: 'ejs'
-}))
+}));
+
+app.keys = ['some secret hurr'];
+
+const CONFIG = {
+  key: 'login',
+  maxAge: 86400000,
+  autoCommit: true,
+  overwrite: true,
+  httpOnly: true,
+  signed: true,
+  rolling: false, 
+  renew: false,
+};
+
+app.use(session(CONFIG, app));
+
+// app.use(ctx => {
+//   // ignore favicon
+//   if (ctx.path === '/favicon.ico') return;
+
+//   let n = ctx.session.views || 0;
+//   ctx.session.views = ++n;
+//   ctx.body = n + ' views';
+// });
 
 // response router
 app.use(router.routes())

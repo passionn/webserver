@@ -119,11 +119,31 @@ const Upload =async (ctx,next) =>{
 	
 }
 
+// 登陆 
+
+const Login =async(ctx,next)=>{
+	if(ctx.method=='POST'){
+		let name=ctx.request.body.name;
+		let password=ctx.request.body.password;
+		if(name=="passion" && password==123456){
+			ctx.redirect('/');
+		}else{
+			ctx.redirect('/');
+		}
+	}else{
+		await ctx.render('login', {
+			title:'my blog'
+		})
+	}
+	
+}
+
 
 export {
 	Index,
 	Articles,
 	Write,
 	Save,
-	Upload
+	Upload,
+	Login
 }

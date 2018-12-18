@@ -1,4 +1,4 @@
-import { Index, Articles, Write,Save,Upload} from '../controllers/'
+import { Index, Articles, Write,Save,Upload,Login} from '../controllers/'
 import { RquestData } from '../controllers/request'
 
 import Router from 'koa-router'
@@ -12,6 +12,8 @@ router.post('/writing/save',Save)
 router.get('/upload',Upload)
 router.post('/upload',Upload)
 router.get('/getDate',RquestData)
+router.get('/login',Login)
+router.post('/login',Login)
 
 
 export default router
